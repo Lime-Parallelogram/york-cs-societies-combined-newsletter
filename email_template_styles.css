@@ -1,0 +1,282 @@
+/* ─── Society-specific Colours & Settings ────────────────────────────────── */
+
+body {
+    --society_colour: #ddd;
+    --society_logo_size: contain;
+}
+
+.yordevs {
+    --society_colour: #f7ed74;
+    --society_logo: url("assets/yordevs_duck_logo_original.png");
+}
+
+.cybersoc {
+    --society_colour: #000000;
+    --society_logo: url("assets/ac_thumb_7_b6d098_CyberSoc.png");
+    --society_logo_size: 18px;
+}
+
+.hacksoc {
+    --society_colour: #bdafc9;
+    --society_logo: url("assets/hacksoc.png");
+}
+
+.ai-society {
+    --society_colour: #b53f93;
+    --society_logo: url("assets/ai-society.png");
+}
+
+.devsoc {
+    --society_colour: #ff0052;
+    --society_logo: url("assets/devsoc.png");
+}
+
+
+/* ─── Positioning ────────────────────────────────────────────────────────── */
+
+.content_outer { /* Contains everything */
+    padding: 0 20px 20px 20px;
+}
+
+
+/* ─── Header Section ─────────────────────────────────────────────────────── */
+
+.header_title_section { /* Contains both title and subtitle (and image maybe) */
+    display: flex;
+    position: relative;
+    flex-wrap: wrap-reverse;
+}
+
+.header_text { /* Everything except image */
+    flex-grow: 1;
+}
+
+.header_title { /* The text 'CompSci' and the associated underline and then 'Societies' */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#CompSciText {
+    font-family: "Berkshire Swash", Bush Script MT, Garamond, serif;
+    font-size: 3rem;
+    color: #121044;
+}
+
+#HeaderDividerLine {
+    background-color: #121044;
+    height: 7px;
+    border-radius: 3.5px;
+    position: absolute;
+    width: 70vw;
+    transform: translate(13px, -5px);
+}
+
+#SocietiesText {
+    font-size: 2rem;
+    margin-top: auto;
+    
+}
+
+#SubTitleText { /* Says 'Joint Newsletter | Week x */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
+    margin-left: 25px;
+    margin-top: 4px;
+}
+
+
+/* ─── Main Content ───────────────────────────────────────────────────────── */
+
+.main_content { /* Contains everything but the header */
+    position: relative; /* Grey line is 100% of this box */
+    padding-bottom: 40px; /* Allow grey line to extend a little beyond the content */
+}
+
+h2 {
+    margin-left: 30px;
+    background-color: rgba(255, 255, 255, 0.541);
+    box-shadow: #ffffff2d 5px 5px 5px;
+    max-width: max-content;
+    border-radius: 7px;
+}
+
+.section_welcome_message {
+    margin-left: 35px;
+    margin-top: 20px;
+
+    font-family: Tahoma, sans-serif;
+}
+
+
+/* ─── TLDR; What's On? ───────────────────────────────────────────────────── */
+
+.calendar_events_flex { /* Wrapping flexbox contains individual calendar events */
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.calendar_event_container { /* Used to ensure the is exactly 2 events per flex row */
+    width: 50%;
+    display: flex;
+}
+
+.calendar_event { /* Contained within .calendar_event_container. This is what is visible to user */
+    border: #ddd 1px solid;
+    border-radius: 7px;
+    
+    display: flex;
+    flex-grow: 1; /* Fill event_container up to max-width */
+
+    margin-right: 20px;
+    margin-top: 10px;
+    max-width: 500px;
+
+    font-family: Geneva, Verdana, sans-serif;
+}
+
+.event_colour_strip {
+    border-left: 19px var(--society_colour) solid;
+    border-radius: 7px 0 0 7px;
+}
+
+.event_information_container { /* Contains everything except colour_strip and left_line */
+    padding: 4px;
+}
+
+.event_time { /* First item - Date & Time */
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.event_location { /* Second item - Location */
+    font-size: 0.7em;
+}
+
+.event_title { /* Last item - brief description */
+    font-size: 1rem;
+}
+
+
+/* ─── Clever Curve Formatting ────────────────────────────────────────────── */
+
+.curve_split_container { /* Both left and right half is member of this */
+    display: flex;
+    position: relative;
+}
+
+.curve {
+    border: #eee 20px solid;
+    width: calc(25% - 20px); /* 25% because this is relative to full screen with. Both curves together need only to stretch 50% of the screen */
+    height: 20px;
+    z-index: -2;
+}
+
+.curve.top_left {
+    border-color: #eee transparent transparent #eee;
+    border-radius: 50px 0 0 0;
+
+    position: absolute;
+    top: 19px;
+
+}
+
+.curve.bottom_right {
+    border-color: transparent #eee #eee transparent;
+    border-radius: 0 0 45px 0;
+
+    position: absolute;
+    left: 25%;
+    top: -21px;
+
+}
+
+
+/* ─── Straight Grey Lines That Go Down The Left ──────────────────────────── */
+
+.section_left_line {
+    border-left: #eee 20px solid;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    z-index: -2;
+}
+
+.left_line_cap { /* Cap off the line with a circle */
+    border: #eee 0.6rem solid;
+    background-color: white;
+
+    border-radius: 50%;
+
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    left: -30px;
+
+    z-index: -1; /* Must be above the line itself */
+}
+
+/* Most of the calendar events don't to display a line as they are on top of an existing one */
+.calendar_events_flex > .calendar_event_container > .section_left_line {
+    display: none;
+}
+
+/* The second calendar event (top row, right) will create a line to serve all calendar events on the right */
+/* Because the height of this is 100%, it relies on the calendar_events_flex having relative positioning */
+.calendar_event_container:nth-child(2) > .section_left_line {
+    display: block;
+    border-radius: 0;
+
+    height: calc(100% + 30px);
+    bottom: 0;
+}
+
+/* Want the line to end just below the C in 'CompSci' */
+.header_title_section > .section_left_line {
+    height: 80%;
+    bottom: -40%;
+}
+
+
+/* ─── Individual Societies Pieces Section ────────────────────────────────── */
+
+.individual_society_container { /* Contain all content relevant to one society */
+    position: relative; /* Ensure that the coloured left lines only last for one society */
+    margin-bottom: 35px;
+}
+
+.individual_society_container > .section_left_line {
+    border-color: var(--society_colour);
+}
+
+.society_container_top { /* Contains the Society Name and the logo circle */
+    height: 3.6rem;
+}
+
+.logo_circle_container { /* Similar to left_line_cap but slightly bigger and contains a society logo */
+    border: var(--society_colour) 0.6rem solid;
+    background-color: rgb(255, 255, 255);
+    background-image: var(--society_logo);
+    background-size: var(--society_logo_size);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border-radius: 50%;
+
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: -15px; /* Must be centred on line */
+}
+
+.society_container_title { /* Society name */
+    font-family: "Latin Modern Mono Prop", 'Courier New', Courier, monospace ;
+    font-size: 2rem;
+    margin-left: 40px;
+}
+
+.society_container_body { /* Main text content for a society */
+    padding-left: 2rem;
+}
