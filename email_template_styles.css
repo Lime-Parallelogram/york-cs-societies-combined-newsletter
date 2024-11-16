@@ -2,33 +2,27 @@
 
 body {
     --society_colour: #ddd;
-    --society_logo_size: contain;
+    --society_logo_size: 30px;
 }
 
 .yordevs {
     --society_colour: #f7ed74;
-    --society_logo: url("assets/yordevs_duck_logo_original.png");
 }
 
 .cybersoc {
     --society_colour: #000000;
-    --society_logo: url("assets/ac_thumb_7_b6d098_CyberSoc.png");
-    --society_logo_size: 18px;
 }
 
 .hacksoc {
     --society_colour: #bdafc9;
-    --society_logo: url("assets/hacksoc.png");
 }
 
 .ai-society {
     --society_colour: #b53f93;
-    --society_logo: url("assets/ai-society.png");
 }
 
 .devsoc {
     --society_colour: #ff0052;
-    --society_logo: url("assets/devsoc.png");
 }
 
 
@@ -269,6 +263,16 @@ h2 {
     position: absolute;
     top: 0;
     left: -15px; /* Must be centred on line */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo_circle_container > img {
+    width: var(--society_logo_size);
+    height: var(--society_logo_size);
+    border-radius: 50%;
 }
 
 .society_container_title { /* Society name */
