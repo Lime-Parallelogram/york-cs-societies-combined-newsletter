@@ -242,4 +242,5 @@ div.logo_circle_container { /* Similar to left_line_cap but slightly bigger and 
 
 .society_container_body { /* Main text content for a society */
     padding-left: 2rem;
+    word-break: break-word;
 }
